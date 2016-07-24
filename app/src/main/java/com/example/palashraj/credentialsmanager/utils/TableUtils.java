@@ -23,4 +23,8 @@ public class TableUtils {
     public void deleteAll(){
         mCredentialsDAO.delete();
     }
+
+    public void fetchCredential(String id){
+        mCredentialsDAO.getCursor(id);
+    }
 }
