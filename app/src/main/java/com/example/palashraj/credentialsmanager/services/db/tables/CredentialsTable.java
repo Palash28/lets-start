@@ -2,6 +2,7 @@ package com.example.palashraj.credentialsmanager.services.db.tables;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 /**
  * Created by Palash Raj on 7/22/2016.
@@ -18,6 +19,7 @@ public class CredentialsTable {
                 + CredentialColumns.siteName + " TEXT, "
                 + CredentialColumns.userID + " TEXT, "
                 + CredentialColumns.password + " TEXT );");
+        Log.v("DBTables","Tables Created");
     }
 
     public static void dropTable(SQLiteDatabase db) {

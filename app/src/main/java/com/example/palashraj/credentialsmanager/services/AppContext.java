@@ -1,17 +1,12 @@
 package com.example.palashraj.credentialsmanager.services;
 
 import android.app.Application;
+public class AppContext{
 
-public class AppContext extends Application{
 	private static AppContext INSTANCE = null;
 	private Application mApplication;
 
-	public AppContext(){
-
-		setContext(this);
-	}
-
-	public static AppContext getInstance (){
+	public static AppContext getInstance(){
 
 		if(INSTANCE == null){
 			INSTANCE = new AppContext();

@@ -1,5 +1,6 @@
 package com.example.palashraj.credentialsmanager.services.db;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -18,8 +19,8 @@ public class AppSharedPreferences {
 
     private String mPin = "pin";
 
-    public AppSharedPreferences(Context context) {
-        this.mPrefs = context.getSharedPreferences(TAG, Context.MODE_PRIVATE);
+    public AppSharedPreferences(Application context) {
+        this.mPrefs = context.getSharedPreferences(TAG, Application.MODE_PRIVATE);
         this.mPrefsEditor = mPrefs.edit();
     }
 
@@ -32,8 +33,8 @@ public class AppSharedPreferences {
         return instance;
     }
 
-    public String getPin() {
-        return mPrefs.getString(mPin, "");
+    public boolean ismPinValid(String mPin) {
+        return (mPrefs.getString(this.mPin, "").equals(mPin));
     }
 
     public void setmPin(String pin) {
@@ -41,11 +42,12 @@ public class AppSharedPreferences {
         mPrefsEditor.commit();
     }
 
-    public void clearPin() {
+    public void clearmPin() {
 
         mPrefsEditor.clear();
         mPrefsEditor.commit();
     }
 
+    public boolean ismPinSet(){ return mPrefs.contains(mPin);}
 }
 
